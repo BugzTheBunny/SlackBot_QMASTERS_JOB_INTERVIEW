@@ -29,7 +29,7 @@ def home():
     return 'Time sent!'
 
 
-@app.route('/time')
+@app.route('/time', methods=['POST'])
 def time():
     return f"{datetime.now()}"
 
