@@ -9,17 +9,24 @@ from apscheduler.schedulers.background import BackgroundScheduler
 # settings.
 super_secret_web_hook = os.environ.get('WEBHOOK')  # Slack Webhook
 
-twitter_consumer_key = os.environ.get('TCK')  # 'IOLJfJDBoPTMmpe6jqoo9quya'
-twitter_consumer_secret = os.environ.get('TCS')  # 'aKQsEsJe7O3EVJQXgwaQ1O3saHulaAk0jaFndGZMjc2oOVtKNW'
-twitter_access_token = os.environ.get('TAT')  # '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'
-twitter_access_secret = os.environ.get('TAS')  # 'JSp33pz7py2fy19c3fXzKhTuzdW2xP02W6g8ngcTI3NEl'
+twitter_consumer_key = os.environ.get('TCK')
+twitter_consumer_secret = os.environ.get('TCS')
+twitter_access_token = os.environ.get('TAT')
+twitter_access_secret = os.environ.get('TAS')
 
-auth = tweepy.OAuthHandler(twitter_consumer_key,twitter_consumer_secret)
-auth.set_access_token(twitter_access_token,twitter_access_secret)
+auth = tweepy.OAuthHandler(twitter_consumer_key, twitter_consumer_secret)
+auth.set_access_token(twitter_access_token, twitter_access_secret)
 
 api = tweepy.API(auth)
-#################### Schedule of sending a message.##############################
+
+app = flask.Flask(__name__)
+
+
 def schedule_send_time_request():
+    """
+    Sends a message to the slack bot every period of time.
+    :return:
+    """
     requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.datetime.now()}'}))
 
 
@@ -28,62 +35,49 @@ scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=3
 scheduler.start()
 
 
-################################################################################
+def send_update(username):
+    """
+    The 'hours=4' is set like this, because of the time differences, it's actually 1 hour ago.
+    :param username: Name of the account from which we want the latest tweets.
 
-app = flask.Flask(__name__)
-# Methods
-@app.route('/')
-def home():
-    requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.datetime.now()}'}))
-    return 'Time sent!'
+    :return:
+    """
+    requests.post(
+        super_secret_web_hook,
+        json.dumps({"text": f"> :robot_face::speech_balloon:*  Latest news from {username} !! BEEP*"}))
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=username).items(5):
+        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=4):
+            requests.post(super_secret_web_hook, json.dumps({"text": f'{tweet.text}'}))
+            requests.post(super_secret_web_hook, json.dumps({"text": f' '}))
+    requests.post(super_secret_web_hook, json.dumps({"text": "> :robot_face::speech_balloon: *Well, that's it!*"}))
+    return f'{username} News!:'
+
 
 @app.route('/python-weekly', methods=['POST'])
 def retrieve_python_weekly():
-    '''
-    Python Weekly latests tweets retriever.
-    :return: Returns the latest tweets
-    '''
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name='PythonWeekly').items(5):
-        if tweet.created_at > datetime.datetime.now().replace(microsecond=0) - datetime.timedelta(hours=4):
-            requests.post(super_secret_web_hook, json.dumps({"text": f"{tweet.text.encode('utf-8')}"}))
-    return 'retrieved Python Weekly tweets!'
+    send_update('PythonWeekly')
+    return flask.Response()
+
 
 @app.route('/real-python', methods=['POST'])
 def retrieve_real_python():
-    '''
-    Real Python latests tweets retriever.
-    :return: Returns the latest tweets
-    '''
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name='PythonWeekly').items(5):
-        if tweet.created_at > datetime.datetime.now().replace(microsecond=0) - datetime.timedelta(hours=4):
-            requests.post(super_secret_web_hook, json.dumps({"text": f"{tweet.text.encode('utf-8')}"}))
-    return 'retrieved Real Python tweets!'
+    send_update('RealPython')
+    return flask.Response()
 
 @app.route('/python-hub', methods=['POST'])
 def retrieve_python_hub():
-    '''
-    Real Python latests tweets retriever. - Added this one cause it had hourly posts.
-    :return: Returns the latest tweets
-    '''
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name='pythonhub').items(5):
-        if tweet.created_at > datetime.datetime.now().replace(microsecond=0) - datetime.timedelta(hours=20):
-            requests.post(super_secret_web_hook, json.dumps({"text": f"{tweet.text.encode('utf-8')}"}))
-    return 'retrieved Python Hub tweets!'
+    send_update('PythonHub')
+    return flask.Response()
 
 @app.route('/fullstack-python', methods=['POST'])
 def retrieve_fullstackpython():
-    '''
-    Full Stack Python latests tweets retriever.
-    :return: Returns the latest tweets
-    '''
-    for tweet in tweepy.Cursor(api.user_timeline, screen_name='PythonWeekly').items(5):
-        if tweet.created_at > datetime.datetime.now().replace(microsecond=0) - datetime.timedelta(hours=20):
-            requests.post(super_secret_web_hook, json.dumps({"text": f"{tweet.text.encode('utf-8')}"}))
-    return 'Yo!'
+    send_update('PythonWeekly')
+    return flask.Response()
 
 @app.route('/time', methods=['POST'])
 def time():
-    return f"{datetime.datetime.now()}"
+    requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.datetime.now()}'}))
+    return flask.Response()
 
 
 if __name__ == '__main__':
