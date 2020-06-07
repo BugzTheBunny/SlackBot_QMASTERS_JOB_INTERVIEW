@@ -15,7 +15,7 @@ def schedule_send_time_request():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=5)
+scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=600)
 scheduler.start()
 
 app = flask.Flask(__name__)
