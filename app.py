@@ -3,7 +3,6 @@ import tweepy
 import flask
 import json
 import os
-import time
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
 
@@ -30,7 +29,7 @@ def schedule_send_time_request():
     requests.post(super_secret_web_hook, json.dumps({'text': f'*Current Time: {datetime.datetime.now()}*'}))
     send_update('PythonWeekly')
     send_update('RealPython')
-    # send_update('PythonHub')
+    send_update('PythonHub')
     send_update('PythonWeekly')
 
 
