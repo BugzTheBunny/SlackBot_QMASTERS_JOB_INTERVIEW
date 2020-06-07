@@ -2,10 +2,11 @@ import flask
 from datetime import datetime
 import requests
 import json
+import os
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # settings.
-super_secret_web_hook = 'https://hooks.slack.com/services/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'
+super_secret_web_hook = os.environ.get('WEBHOOK')
 
 
 ################################################################################
@@ -15,7 +16,7 @@ def schedule_send_time_request():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=600)
+scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=5)
 scheduler.start()
 
 app = flask.Flask(__name__)
