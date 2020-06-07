@@ -26,11 +26,12 @@ def schedule_send_time_request():
     Sends a message to the slack bot every period of time.
     :return:
     """
+    requests.post(super_secret_web_hook, json.dumps({'text': f'*Current Time: {datetime.datetime.now()}*'}))
     send_update('PythonWeekly')
     send_update('RealPython')
     send_update('PythonHub')
     send_update('PythonWeekly')
-    requests.post(super_secret_web_hook, json.dumps({'text': f'*Current Time: {datetime.datetime.now()}*'}))
+
 
 
 scheduler = BackgroundScheduler()
@@ -73,6 +74,11 @@ def retrieve_python_hub():
 @app.route('/fullstack-python', methods=['POST'])
 def retrieve_fullstackpython():
     send_update('PythonWeekly')
+    return flask.Response()
+
+@app.route('/updates', methods=['POST'])
+def get_updates():
+    schedule_send_time_request()
     return flask.Response()
 
 @app.route('/time', methods=['POST'])
