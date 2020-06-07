@@ -1,1 +1,2 @@
 web: gunicorn app:slack_bot
+heroku ps:scale web=1
