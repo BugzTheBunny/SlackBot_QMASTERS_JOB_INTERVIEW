@@ -21,17 +21,20 @@ api = tweepy.API(auth)
 
 app = flask.Flask(__name__)
 
-
 def schedule_send_time_request():
     """
     Sends a message to the slack bot every period of time.
     :return:
     """
+    send_update('PythonWeekly')
+    send_update('RealPython')
+    send_update('PythonHub')
+    send_update('PythonWeekly')
     requests.post(super_secret_web_hook, json.dumps({'text': f'*Current Time: {datetime.datetime.now()}*'}))
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=10)
+scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=3600)
 scheduler.start()
 
 
@@ -48,7 +51,6 @@ def send_update(username):
             requests.post(super_secret_web_hook,
                 json.dumps({"text": f"> :robot_face::speech_balloon:*  A new tweet from {username} !! BEEP*"}))
             requests.post(super_secret_web_hook, json.dumps({"text": f'{tweet.text}'}))
-    requests.post(super_secret_web_hook, json.dumps({"text": "> :robot_face::speech_balloon:  *Well, that's it!*"}))
     return f'{username} News!:'
 
 
