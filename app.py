@@ -27,7 +27,7 @@ def schedule_send_time_request():
     Sends a message to the slack bot every period of time.
     :return:
     """
-    requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.datetime.now()}'}))
+    requests.post(super_secret_web_hook, json.dumps({'text': f'*Current Time: {datetime.datetime.now()}*'}))
 
 
 scheduler = BackgroundScheduler()
@@ -42,14 +42,13 @@ def send_update(username):
 
     :return:
     """
-    requests.post(
-        super_secret_web_hook,
-        json.dumps({"text": f"> :robot_face::speech_balloon:*  Latest news from {username} !! BEEP*"}))
+
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=username).items(5):
-        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=4):
+        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=20):
+            requests.post(super_secret_web_hook,
+                json.dumps({"text": f"> :robot_face::speech_balloon:*  A new tweet from {username} !! BEEP*"}))
             requests.post(super_secret_web_hook, json.dumps({"text": f'{tweet.text}'}))
-            requests.post(super_secret_web_hook, json.dumps({"text": f' '}))
-    requests.post(super_secret_web_hook, json.dumps({"text": "> :robot_face::speech_balloon: *Well, that's it!*"}))
+    requests.post(super_secret_web_hook, json.dumps({"text": "> :robot_face::speech_balloon:  *Well, that's it!*"}))
     return f'{username} News!:'
 
 
@@ -76,7 +75,7 @@ def retrieve_fullstackpython():
 
 @app.route('/time', methods=['POST'])
 def time():
-    requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.datetime.now()}'}))
+    requests.post(super_secret_web_hook, json.dumps({'text': f'*{datetime.datetime.now()}*'}))
     return flask.Response()
 
 
