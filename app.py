@@ -23,13 +23,13 @@ app.config["DEBUG"] = True
 ################################################################################
 
 # Methods
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     requests.post(super_secret_web_hook, json.dumps({'text': f'{datetime.now()}'}))
     return 'Time sent!'
 
 
-@app.route('/time', methods=['ANY'])
+@app.route('/time')
 def time():
     return f"{datetime.now()}"
 
