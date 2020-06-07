@@ -47,7 +47,7 @@ def send_update(username):
     """
 
     for tweet in tweepy.Cursor(api.user_timeline, screen_name=username).items(5):
-        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=20):
+        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=4):
             requests.post(super_secret_web_hook,
                 json.dumps({"text": f"> :robot_face::speech_balloon:*  A new tweet from {username} !! BEEP*"}))
             requests.post(super_secret_web_hook, json.dumps({"text": f'{tweet.text}'}))
