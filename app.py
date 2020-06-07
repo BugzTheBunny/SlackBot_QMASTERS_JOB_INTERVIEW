@@ -31,7 +31,7 @@ def schedule_send_time_request():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=3600)
+scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=10)
 scheduler.start()
 
 
