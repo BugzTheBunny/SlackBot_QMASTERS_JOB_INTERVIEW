@@ -100,7 +100,7 @@ def send_update(username, user_full_name):
 def retrieve_python_weekly():
     try:
         send_update('PythonWeekly', 'Python Weekly')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/python-weekly'")
         return False
@@ -109,7 +109,7 @@ def retrieve_python_weekly():
 def retrieve_real_python():
     try:
         send_update('RealPython', 'Real Python')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/real-python'")
         return False
@@ -118,7 +118,7 @@ def retrieve_real_python():
 def retrieve_python_hub():
     try:
         send_update('PythonHub', 'Python Hub')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/python-hub'")
         return False
@@ -127,7 +127,7 @@ def retrieve_python_hub():
 def retrieve_fullstackpython():
     try:
         send_update('fullstackpython', 'Full Stack Python')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/fullstack-python'")
         return False
@@ -136,7 +136,7 @@ def retrieve_fullstackpython():
 def retrieve_csharpstack():
     try:
         send_update('csharpstack','C# StackOverflow')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/csharpstack'")
         return False
@@ -145,7 +145,7 @@ def retrieve_csharpstack():
 def retrieve_javascriptdaily():
     try:
         send_update('JavaScriptDaily', 'JavaScript Daily')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/javascriptdaily'")
         return False
@@ -153,7 +153,7 @@ def retrieve_javascriptdaily():
 def retrieve_cprogramming1():
     try:
         send_update('CProgramming1','C++ Programming')
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/cprogramming1'")
         return False
@@ -162,7 +162,7 @@ def retrieve_cprogramming1():
 def get_updates():
     try:
         schedule_send_time_request()
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/updates'")
         return False
@@ -171,7 +171,7 @@ def get_updates():
 def post_tweet():
     try:
         api.update_status(flask.request.data)
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/tweet'")
         return False
@@ -180,7 +180,7 @@ def post_tweet():
 def time():
     try:
         requests.post(super_secret_web_hook, json.dumps({'text': f' Current time: *{datetime.datetime.now()}*'}))
-        return True
+        return flask.Response()
     except:
         logging.error("Something is wrong with '/time'")
         return False
