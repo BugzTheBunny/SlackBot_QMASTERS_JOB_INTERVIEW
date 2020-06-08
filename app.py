@@ -28,22 +28,22 @@ user_id = '1269651960954748930'  # The ID of the user that the bot will follow, 
 api = tweepy.API(auth)  # connection to Twitter API.
 
 
-def schedule_send_time_request():
-    """
-    Makes the bot to send an update every period of time (Set by user above).
-    :return:
-    """
-    requests.post(
-        super_secret_web_hook,
-        json.dumps({'text': f'> :robot_face::speech_balloon:*  Latest Updates:* *Time: {datetime.datetime.now()}*'}))
-    send_update('PythonWeekly')
-    send_update('RealPython')
-    send_update('PythonWeekly')
-
-
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=seconds_interval_per_update)
-scheduler.start()
+# def schedule_send_time_request():
+#     """
+#     Makes the bot to send an update every period of time (Set by user above).
+#     :return:
+#     """
+#     requests.post(
+#         super_secret_web_hook,
+#         json.dumps({'text': f'> :robot_face::speech_balloon:*  Latest Updates:* *Time: {datetime.datetime.now()}*'}))
+#     send_update('PythonWeekly')
+#     send_update('RealPython')
+#     send_update('PythonWeekly')
+#
+#
+# scheduler = BackgroundScheduler()
+# scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=seconds_interval_per_update)
+# scheduler.start()
 
 class TwitterListener(StreamListener):
     def on_data(self, data):
