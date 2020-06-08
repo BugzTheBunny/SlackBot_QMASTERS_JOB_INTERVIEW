@@ -43,34 +43,33 @@ def schedule_send_time_request():
     send_update('PythonWeekly', 'Python Weekly')
 
 
-
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=seconds_interval_per_update)
 scheduler.start()
 
-if run_stream_with_user:
-    class TwitterListener(StreamListener):
-        def on_data(self, data):
-            try:
-                data = json.loads(data)
-                requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
-                logging.info(f'User has posted an update : {data["text"]}')
-                return True
-            except:
-                logging.error(f'There was no data while following the user.')
-
-        def on_error(self, status_code):
-            logging.warning(f'Something went wrong while following Twitter.{status_code}')
-
-
-    """
-    This won't work on Heroku free account, this WILL work locally, or on a proper server.
-    change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
-    instant updates on new tweets from the selected user.
-    """
-    listener = TwitterListener()
-    stream = Stream(auth, listener)
-    stream.filter(follow=[user_id])
+# if run_stream_with_user:
+#     class TwitterListener(StreamListener):
+#         def on_data(self, data):
+#             try:
+#                 data = json.loads(data)
+#                 requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
+#                 logging.info(f'User has posted an update : {data["text"]}')
+#                 return True
+#             except:
+#                 logging.error(f'There was no data while following the user.')
+# 
+#         def on_error(self, status_code):
+#             logging.warning(f'Something went wrong while following Twitter.{status_code}')
+#
+#
+#     """
+#     This won't work on Heroku free account, this WILL work locally, or on a proper server.
+#     change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
+#     instant updates on new tweets from the selected user.
+#     """
+#     listener = TwitterListener()
+#     stream = Stream(auth, listener)
+#     stream.filter(follow=[user_id])
 
 
 def send_update(username, user_full_name):
