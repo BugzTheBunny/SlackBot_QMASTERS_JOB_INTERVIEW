@@ -18,10 +18,16 @@ latest_tweets_time = 5  # The time from where we want tweets(1 hour ago, means 4
 app = flask.Flask(__name__)  # Flask App
 
 # Twitter Settings
-twitter_consumer_key = os.environ.get('TCK')  # Consumer Key
-twitter_consumer_secret = os.environ.get('TCS')  # Consumer Secret
-twitter_access_token = os.environ.get('TAT')  # Access Token
-twitter_access_secret = os.environ.get('TAS')  # Access Secret
+# TCK = 'IOLJfJDBoPTMmpe6jqoo9quya' (1)
+# TCS = 'aKQsEsJe7O3EVJQXgwaQ1O3saHulaAk0jaFndGZMjc2oOVtKNW' (2)
+# TAT = '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv' (3)
+# TAS = 'JSp33pz7py2fy19c3fXzKhTuzdW2xP02W6g8ngcTI3NEl' (4)
+# <------- (Set them as env variables, or just replace below) -------->
+twitter_consumer_key = os.environ.get('TCK')  # Consumer Key (1)
+twitter_consumer_secret = os.environ.get('TCS')  # Consumer Secret (2)
+twitter_access_token = os.environ.get('TAT')  # Access Token (3)
+twitter_access_secret = os.environ.get('TAS')  # Access Secret (4)
+
 auth = tweepy.OAuthHandler(twitter_consumer_key, twitter_consumer_secret)  # Twitter auth handler
 auth.set_access_token(twitter_access_token, twitter_access_secret)  # Setting access Token
 api = tweepy.API(auth)  # connection to Twitter API.
@@ -48,6 +54,14 @@ scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=s
 scheduler.start()
 
 if run_stream_with_user:
+    """
+    -This should subscribe to the selected user (Set above), and get his new tweets, if he does tweet something.
+    **This won't work on Heroku free account, this WILL work locally, or on a proper server.**
+    change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
+    instant updates on new tweets from the selected user.
+    """
+
+
     class TwitterListener(StreamListener):
         def on_data(self, data):
             try:
@@ -62,11 +76,6 @@ if run_stream_with_user:
             logging.warning(f'Something went wrong while following Twitter.{status_code}')
 
 
-    """
-    This won't work on Heroku free account, this WILL work locally, or on a proper server.
-    change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
-    instant updates on new tweets from the selected user.
-    """
     listener = TwitterListener()
     stream = Stream(auth, listener)
     stream.filter(follow=[user_id])
@@ -74,116 +83,124 @@ if run_stream_with_user:
 
 def send_update(username, user_full_name):
     """
+    This method handles the updates, recieves the name of the user, and the nickname, get's the newest tweets.
+    and returns them to Slack.
     The 'hours=4' is set like this, because of the time differences, it's actually 1 hour ago.
     :param user_full_name: full name of the user
     :param username: Name of the account from which we want the latest tweets.
-
     :return:
     """
-    try:
-        response = ''
-        for tweet in tweepy.Cursor(api.user_timeline, screen_name=username).items(5):
-            if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=latest_tweets_time):
-                response = response + f'*•* {tweet.text} \n\n'
-        if response != '':
-            requests.post(super_secret_web_hook,
-                          json.dumps({"text": f'>:robot_face::speech_balloon: *News from {user_full_name}!*'}))
-            requests.post(super_secret_web_hook, json.dumps({"text": f'{response}'}))
-        logging.info('Sent an update!')
-        return f'{username} News!:'
-    except:
-        logging.error("Something is wrong with sending a message")
-        return False
+    response = ''
+    for tweet in tweepy.Cursor(api.user_timeline, screen_name=username).items(5):
+        if tweet.created_at > datetime.datetime.now() - datetime.timedelta(hours=latest_tweets_time):
+            response = response + f'*•* {tweet.text} \n\n'
+    if response != '':
+        requests.post(super_secret_web_hook,
+                      json.dumps({"text": f'>:robot_face::speech_balloon: *News from {user_full_name}!*'}))
+        requests.post(super_secret_web_hook, json.dumps({"text": f'{response}'}))
+    logging.info('Sent an update!')
+    return f'{username} News!:'
 
 
 @app.route('/python-weekly', methods=['POST'])
 def retrieve_python_weekly():
-    try:
-        send_update('PythonWeekly', 'Python Weekly')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/python-weekly'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('PythonWeekly', 'Python Weekly')
+    return flask.Response()
+
 
 @app.route('/real-python', methods=['POST'])
 def retrieve_real_python():
-    try:
-        send_update('RealPython', 'Real Python')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/real-python'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('RealPython', 'Real Python')
+    return flask.Response()
+
 
 @app.route('/python-hub', methods=['POST'])
 def retrieve_python_hub():
-    try:
-        send_update('PythonHub', 'Python Hub')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/python-hub'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('PythonHub', 'Python Hub')
+    return flask.Response()
+
 
 @app.route('/fullstack-python', methods=['POST'])
 def retrieve_fullstackpython():
-    try:
-        send_update('fullstackpython', 'Full Stack Python')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/fullstack-python'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('fullstackpython', 'Full Stack Python')
+    return flask.Response()
+
 
 @app.route('/csharpstack', methods=['POST'])
 def retrieve_csharpstack():
-    try:
-        send_update('csharpstack','C# StackOverflow')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/csharpstack'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('csharpstack', 'C# StackOverflow')
+    return flask.Response()
+
 
 @app.route('/javascriptdaily', methods=['POST'])
 def retrieve_javascriptdaily():
-    try:
-        send_update('JavaScriptDaily', 'JavaScript Daily')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/javascriptdaily'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('JavaScriptDaily', 'JavaScript Daily')
+    return flask.Response()
+
+
 @app.route('/cprogramming1', methods=['POST'])
 def retrieve_cprogramming1():
-    try:
-        send_update('CProgramming1','C++ Programming')
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/cprogramming1'")
-        return False
+    """
+    posts the new tweets from the selected user on slack.
+    :return:
+    """
+    send_update('CProgramming1', 'C++ Programming')
+    return flask.Response()
+
 
 @app.route('/updates', methods=['POST'])
 def get_updates():
-    try:
-        schedule_send_time_request()
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/updates'")
-        return False
+    """
+    posts ALL the new updates from the selected twitter accounts.
+    :return:
+    """
+    schedule_send_time_request()
+    return flask.Response()
 
-@app.route('/tweet', methods=['POST'])
-def post_tweet():
-    try:
-        api.update_status(flask.request.data)
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/tweet'")
-        return False
 
 @app.route('/time', methods=['POST'])
 def time():
-    try:
-        requests.post(super_secret_web_hook, json.dumps({'text': f' Current time: *{datetime.datetime.now()}*'}))
-        return flask.Response()
-    except:
-        logging.error("Something is wrong with '/time'")
-        return False
+    """
+    posts the time on slack.
+    :return:
+    """
+    requests.post(super_secret_web_hook, json.dumps({'text': f' Current time: *{datetime.datetime.now()}*'}))
+    return flask.Response()
+
+
+@app.route('/tweet', methods=['POST'])
+def post_tweet():
+    """
+    Unlike the other
+    :return:
+    """
+    api.update_status(flask.request.data)
+    return flask.Response()
+
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
