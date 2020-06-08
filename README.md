@@ -32,7 +32,9 @@ HALF DONE - New tweet via Slack, managed to make a script which posts new Tweets
 Use an external library for accessing Slack or Twitter, but just for one of them, the second endpoint should be API.
 
 `Result`:
+
 ~DONE~ All the Instruction
+
 ~DONE~ Half of the Bonus
 
 
