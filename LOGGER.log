@@ -140,3 +140,13 @@ DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/
 DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="34279113019643754121591602856", oauth_timestamp="1591602856", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="UfS%2FiAJGg9bA96r0oq4RUbMa1Bg%3D"'}
 DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 12:00:07.334124+03:00 (in 3599.994999 seconds)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 12:00:14.181197+03:00 (in 3599.994999 seconds)

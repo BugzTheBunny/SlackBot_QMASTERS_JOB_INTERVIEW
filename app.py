@@ -45,6 +45,22 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=seconds_interval_per_update)
 scheduler.start()
 
+class TwitterListener(StreamListener):
+    def on_data(self, data):
+        try:
+            data = json.loads(data)
+            requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
+            logging.info(f'User has posted an update : {data["text"]}')
+            return True
+        except:
+            logging.error(f'There was no data while following the user.')
+    def on_error(self, status_code):
+        logging.warning(f'Something went wrong while following Twitter.{status_code}')
+
+
+listener = TwitterListener()
+stream = Stream(auth, listener)
+stream.filter(follow=[user_id])
 
 def send_update(username):
     """
@@ -102,22 +118,7 @@ def time():
     return flask.Response()
 
 
-class TwitterListener(StreamListener):
-    def on_data(self, data):
-        try:
-            data = json.loads(data)
-            requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
-            logging.info(f'User has posted an update : {data["text"]}')
-            return True
-        except:
-            logging.error(f'There was no data while following the user.')
-    def on_error(self, status_code):
-        logging.warning(f'Something went wrong while following Twitter.{status_code}')
 
-
-listener = TwitterListener()
-stream = Stream(auth, listener)
-stream.filter(follow=[user_id])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=True)
