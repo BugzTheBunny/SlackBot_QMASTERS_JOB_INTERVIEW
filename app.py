@@ -14,7 +14,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 logging.basicConfig(filename='LOGGER.log', level=logging.DEBUG)  # Logger
 super_secret_web_hook = os.environ.get('WEBHOOK')  # Slack Webhook
 seconds_interval_per_update = 3600  # Time interval per update
-latest_tweets_time = 5  # The time from where we want tweets(1 hour ago, means 4 hours ago because of time diffs in IL).
+latest_tweets_time = 4  # The time from where we want tweets(1 hour ago, means 4 hours ago because of time diffs in IL).
 app = flask.Flask(__name__)  # Flask App
 
 # Twitter Settings
