@@ -34,3 +34,7 @@ Use an external library for accessing Slack or Twitter, but just for one of them
 `Result`:
 ~DONE~ All the Instruction
 ~DONE~ Half of the Bonus
+
+
+`Libraries -` 
+Requests , Flask , Tweepy, APscheduler
