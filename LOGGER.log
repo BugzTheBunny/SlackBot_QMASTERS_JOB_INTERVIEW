@@ -150,3 +150,331 @@ INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "
 INFO:apscheduler.scheduler:Scheduler started
 DEBUG:apscheduler.scheduler:Looking for jobs to run
 DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 12:00:14.181197+03:00 (in 3599.994999 seconds)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:22:46.948251+03:00 (in 3599.997997 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '18296698567272219031591611766'), ('oauth_timestamp', '1591611766'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=18296698567272219031591611766&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591611766&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D18296698567272219031591611766%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591611766%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: ZQJy6Ck3dL09B0e6davxGug+sCc=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="18296698567272219031591611766", oauth_timestamp="1591611766", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="ZQJy6Ck3dL09B0e6davxGug%2BsCc%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+ERROR:root:There was no data while following the user.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): hooks.slack.com:443
+DEBUG:urllib3.connectionpool:https://hooks.slack.com:443 "POST /services/T015P4KLA80/B0155ERB5UL/QKyqc1fEXNuuKQiGpcaXZnut HTTP/1.1" 200 22
+INFO:root:User has posted an update : Sent from python!
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): hooks.slack.com:443
+DEBUG:urllib3.connectionpool:https://hooks.slack.com:443 "POST /services/T015P4KLA80/B0155ERB5UL/QKyqc1fEXNuuKQiGpcaXZnut HTTP/1.1" 200 22
+INFO:root:User has posted an update : RT @BugzTheBunny1: Sent from python!
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:25:38.085535+03:00 (in 3599.998000 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '170179427443805494021591611938'), ('oauth_timestamp', '1591611938'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=170179427443805494021591611938&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591611938&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D170179427443805494021591611938%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591611938%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: MOTziyESEjgmmftbENfrlCjc/l8=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="170179427443805494021591611938", oauth_timestamp="1591611938", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="MOTziyESEjgmmftbENfrlCjc%2Fl8%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:28:39.502539+03:00 (in 3599.979996 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '14685835946629447521591612119'), ('oauth_timestamp', '1591612119'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=14685835946629447521591612119&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612119&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D14685835946629447521591612119%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612119%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: UGOcZAmCkro2+9B4CjCla/4Ymag=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="14685835946629447521591612119", oauth_timestamp="1591612119", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="UGOcZAmCkro2%2B9B4CjCla%2F4Ymag%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:29:26.834637+03:00 (in 3599.997999 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '61335750915052994261591612166'), ('oauth_timestamp', '1591612166'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=61335750915052994261591612166&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612166&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D61335750915052994261591612166%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612166%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: gidIm9Y2ClcG3jx4Lzp0a4ZzqrE=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="61335750915052994261591612166", oauth_timestamp="1591612166", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="gidIm9Y2ClcG3jx4Lzp0a4ZzqrE%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:29:42.199381+03:00 (in 3599.997000 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '177297002859810290591591612182'), ('oauth_timestamp', '1591612182'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=177297002859810290591591612182&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612182&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D177297002859810290591591612182%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612182%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: ZABTrjiu334HU+qnnQ+rRnNqOf0=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="177297002859810290591591612182", oauth_timestamp="1591612182", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="ZABTrjiu334HU%2BqnnQ%2BrRnNqOf0%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:29:44.135790+03:00 (in 3599.997999 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '176536639497157671321591612184'), ('oauth_timestamp', '1591612184'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=176536639497157671321591612184&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612184&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D176536639497157671321591612184%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612184%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: jXb01mgui09MYshy9i6cgoI26vQ=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="176536639497157671321591612184", oauth_timestamp="1591612184", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="jXb01mgui09MYshy9i6cgoI26vQ%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:31:11.730769+03:00 (in 3599.997999 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '88071059718900892351591612271'), ('oauth_timestamp', '1591612271'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=88071059718900892351591612271&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612271&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D88071059718900892351591612271%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612271%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: iDU61dheUaIs3mwl9ygSS+VlY6k=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="88071059718900892351591612271", oauth_timestamp="1591612271", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="iDU61dheUaIs3mwl9ygSS%2BVlY6k%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:33:07.613596+03:00 (in 3599.997999 seconds)
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: True
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('delimited', 'length'), ('oauth_nonce', '130273438136888864391591612387'), ('oauth_timestamp', '1591612387'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv'), ('follow', '1269651960954748930')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: delimited=length&follow=1269651960954748930&oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=130273438136888864391591612387&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612387&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://stream.twitter.com/1.1/statuses/filter.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fstream.twitter.com%2F1.1%2Fstatuses%2Ffilter.json&delimited%3Dlength%26follow%3D1269651960954748930%26oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D130273438136888864391591612387%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612387%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0
+DEBUG:oauthlib.oauth1.rfc5849:Signature: 0oLaZLW0ZfFy6OQXv26fnDLvXss=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://stream.twitter.com/1.1/statuses/filter.json?delimited=length
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '26', 'Authorization': 'OAuth oauth_nonce="130273438136888864391591612387", oauth_timestamp="1591612387", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="0oLaZLW0ZfFy6OQXv26fnDLvXss%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: 'follow=1269651960954748930'
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): stream.twitter.com:443
+DEBUG:urllib3.connectionpool:https://stream.twitter.com:443 "POST /1.1/statuses/filter.json?delimited=length HTTP/1.1" 200 None
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:33:15.888769+03:00 (in 3599.996000 seconds)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:34:32.517482+03:00 (in 3599.994000 seconds)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:34:45.994907+03:00 (in 3599.993998 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:39:36.140960+03:00 (in 3599.992999 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:41:18.288700+03:00 (in 3599.989997 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:41:28.285696+03:00 (in 3599.993999 seconds)
+INFO:werkzeug: * Restarting with stat
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:41:28.942844+03:00 (in 3599.994998 seconds)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-541-701
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'C:\\Users\\Slava\\Desktop\\SlackBot\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:41:37.970231+03:00 (in 3599.994999 seconds)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 214-541-701
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:41:42.933726+03:00 (in 3599.994000 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:41:54] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:41:59] "[31m[1mGET /tweet HTTP/1.1[0m" 405 -
+DEBUG:tweepy.binder:PARAMS: {'status': b'Sent from python!'}
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: False
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('status', 'Sent from python!'), ('oauth_nonce', '44362265485494883581591612948'), ('oauth_timestamp', '1591612948'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=44362265485494883581591612948&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612948&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0&status=Sent%20from%20python%21
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://api.twitter.com/1.1/statuses/update.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D44362265485494883581591612948%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612948%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0%26status%3DSent%2520from%2520python%2521
+DEBUG:oauthlib.oauth1.rfc5849:Signature: RuqYbbUjrMNPqvE9Q8gjOziqNcA=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://api.twitter.com/1.1/statuses/update.json?status=Sent+from+python%21
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Host': 'api.twitter.com', 'Content-Length': '0', 'Authorization': 'OAuth oauth_nonce="44362265485494883581591612948", oauth_timestamp="1591612948", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="RuqYbbUjrMNPqvE9Q8gjOziqNcA%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.twitter.com:443
+DEBUG:urllib3.connectionpool:https://api.twitter.com:443 "POST /1.1/statuses/update.json?status=Sent+from+python%21 HTTP/1.1" 403 60
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:42:28] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+DEBUG:tweepy.binder:PARAMS: {'status': b'Sent from python!'}
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: False
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('status', 'Sent from python!'), ('oauth_nonce', '166381881797761549141591612963'), ('oauth_timestamp', '1591612963'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=166381881797761549141591612963&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591612963&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0&status=Sent%20from%20python%21
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://api.twitter.com/1.1/statuses/update.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D166381881797761549141591612963%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591612963%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0%26status%3DSent%2520from%2520python%2521
+DEBUG:oauthlib.oauth1.rfc5849:Signature: 21lrrLUHIc01UK0krie4LIG/6DE=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://api.twitter.com/1.1/statuses/update.json?status=Sent+from+python%21
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Host': 'api.twitter.com', 'Content-Length': '0', 'Authorization': 'OAuth oauth_nonce="166381881797761549141591612963", oauth_timestamp="1591612963", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="21lrrLUHIc01UK0krie4LIG%2F6DE%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.twitter.com:443
+DEBUG:urllib3.connectionpool:https://api.twitter.com:443 "POST /1.1/statuses/update.json?status=Sent+from+python%21 HTTP/1.1" 403 60
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:42:44] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:42:55.484501+03:00 (in 3599.993998 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG:tweepy.binder:PARAMS: {'status': b'Sent from python!'}
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: False
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('status', 'Sent from python!'), ('oauth_nonce', '19129929395411537011591613001'), ('oauth_timestamp', '1591613001'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=19129929395411537011591613001&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591613001&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0&status=Sent%20from%20python%21
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://api.twitter.com/1.1/statuses/update.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D19129929395411537011591613001%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591613001%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0%26status%3DSent%2520from%2520python%2521
+DEBUG:oauthlib.oauth1.rfc5849:Signature: 4r3CbNgIIkQNGBofQWnL3LdWxwY=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://api.twitter.com/1.1/statuses/update.json?status=Sent+from+python%21
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Host': 'api.twitter.com', 'Content-Length': '0', 'Authorization': 'OAuth oauth_nonce="19129929395411537011591613001", oauth_timestamp="1591613001", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="4r3CbNgIIkQNGBofQWnL3LdWxwY%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.twitter.com:443
+DEBUG:urllib3.connectionpool:https://api.twitter.com:443 "POST /1.1/statuses/update.json?status=Sent+from+python%21 HTTP/1.1" 403 60
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:43:22] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:43:57.266146+03:00 (in 3599.993999 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+DEBUG:tweepy.binder:PARAMS: {'screen_name': b'fullstackpython'}
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [GET]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: False
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('screen_name', 'fullstackpython'), ('oauth_nonce', '97611406880268597491591613041'), ('oauth_timestamp', '1591613041'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=97611406880268597491591613041&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591613041&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0&screen_name=fullstackpython
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://api.twitter.com/1.1/statuses/user_timeline.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: GET&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fuser_timeline.json&oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D97611406880268597491591613041%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591613041%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0%26screen_name%3Dfullstackpython
+DEBUG:oauthlib.oauth1.rfc5849:Signature: bDIlmzKRIaQUlrIBxjyLXz/GKq4=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=fullstackpython
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Host': 'api.twitter.com', 'Authorization': 'OAuth oauth_nonce="97611406880268597491591613041", oauth_timestamp="1591613041", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="bDIlmzKRIaQUlrIBxjyLXz%2FGKq4%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.twitter.com:443
+DEBUG:urllib3.connectionpool:https://api.twitter.com:443 "GET /1.1/statuses/user_timeline.json?screen_name=fullstackpython HTTP/1.1" 200 85870
+DEBUG:tweepy.binder:PARAMS: {'create': b'True'}
+INFO:root:Sent an update!
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:44:02] "[37mPOST /fullstack-python HTTP/1.1[0m" 200 -
+DEBUG:tweepy.binder:PARAMS: {'status': b'Sent from python!'}
+DEBUG:requests_oauthlib.oauth1_auth:Signing request <PreparedRequest [POST]> using client <Client client_key=IOLJfJDBoPTMmpe6jqoo9quya, client_secret=****, resource_owner_key=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=None, nonce=None, timestamp=None>
+DEBUG:requests_oauthlib.oauth1_auth:Including body in call to sign: False
+DEBUG:oauthlib.oauth1.rfc5849:Collected params: [('status', 'Sent from python!'), ('oauth_nonce', '52457264886917114181591613150'), ('oauth_timestamp', '1591613150'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', 'IOLJfJDBoPTMmpe6jqoo9quya'), ('oauth_token', '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv')]
+DEBUG:oauthlib.oauth1.rfc5849:Normalized params: oauth_consumer_key=IOLJfJDBoPTMmpe6jqoo9quya&oauth_nonce=52457264886917114181591613150&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1591613150&oauth_token=1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv&oauth_version=1.0&status=Sent%20from%20python%21
+DEBUG:oauthlib.oauth1.rfc5849:Normalized URI: https://api.twitter.com/1.1/statuses/update.json
+DEBUG:oauthlib.oauth1.rfc5849:Signing: signature base string: POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&oauth_consumer_key%3DIOLJfJDBoPTMmpe6jqoo9quya%26oauth_nonce%3D52457264886917114181591613150%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1591613150%26oauth_token%3D1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv%26oauth_version%3D1.0%26status%3DSent%2520from%2520python%2521
+DEBUG:oauthlib.oauth1.rfc5849:Signature: NriIobCiBXfKqxTi3d0WmxkRhWc=
+DEBUG:requests_oauthlib.oauth1_auth:Updated url: https://api.twitter.com/1.1/statuses/update.json?status=Sent+from+python%21
+DEBUG:requests_oauthlib.oauth1_auth:Updated headers: {'Host': 'api.twitter.com', 'Content-Length': '0', 'Authorization': 'OAuth oauth_nonce="52457264886917114181591613150", oauth_timestamp="1591613150", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="IOLJfJDBoPTMmpe6jqoo9quya", oauth_token="1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv", oauth_signature="NriIobCiBXfKqxTi3d0WmxkRhWc%3D"'}
+DEBUG:requests_oauthlib.oauth1_auth:Updated body: None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.twitter.com:443
+DEBUG:urllib3.connectionpool:https://api.twitter.com:443 "POST /1.1/statuses/update.json?status=Sent+from+python%21 HTTP/1.1" 403 60
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:45:51] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:46:11.257891+03:00 (in 3599.993999 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:46:13] "[37mPOST /tweet HTTP/1.1[0m" 200 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:47:12.486761+03:00 (in 3599.990998 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:47:15] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:47:37.617145+03:00 (in 3599.990998 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:47:41] "[37mPOST /tweet HTTP/1.1[0m" 200 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:48:01.938971+03:00 (in 3599.994000 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:48:03] "[35m[1mPOST /tweet HTTP/1.1[0m" 500 -
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "schedule_send_time_request" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2020-06-08 14:49:01.418980+03:00 (in 3599.990998 seconds)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [08/Jun/2020 13:49:04] "[37mPOST /tweet HTTP/1.1[0m" 200 -

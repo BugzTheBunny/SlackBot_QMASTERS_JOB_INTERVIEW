@@ -3,7 +3,7 @@ from tweepy import Stream
 from tweepy.streaming import StreamListener
 import tweepy
 import os
-
+import requests
 twitter_consumer_key = os.environ.get('TCK')
 twitter_consumer_secret = os.environ.get('TCS')
 twitter_access_token = os.environ.get('TAT')
@@ -22,6 +22,9 @@ class TwitterListener(StreamListener):
         return True
     def on_error(self, status_code):
         print(status_code)
+
+post = input('Your tweet!: ')
+requests.post('http://127.0.0.1:5000/tweet', post)
 
 if __name__ == '__main__':
     listener = TwitterListener()
