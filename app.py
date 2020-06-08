@@ -38,7 +38,6 @@ def schedule_send_time_request():
         json.dumps({'text': f'> :robot_face::speech_balloon:*  Latest Updates:* *Time: {datetime.datetime.now()}*'}))
     send_update('PythonWeekly')
     send_update('RealPython')
-    send_update('PythonHub')
     send_update('PythonWeekly')
 
 
