@@ -57,7 +57,7 @@ scheduler.start()
 #                 return True
 #             except:
 #                 logging.error(f'There was no data while following the user.')
-# 
+#
 #         def on_error(self, status_code):
 #             logging.warning(f'Something went wrong while following Twitter.{status_code}')
 #
@@ -140,7 +140,7 @@ def get_updates():
 
 @app.route('/tweet', methods=['POST'])
 def post_tweet():
-    print(flask.request.data)
+    print(flask.request)
     # api.update_status("TEXT")
     return flask.Response()
 
