@@ -1,27 +1,17 @@
 import datetime
-import tweepy
-from tweepy import OAuthHandler
-from tweepy import Stream
-from tweepy.streaming import StreamListener
+import tweepy  # => Work with twitter - external lib as a requirement
 import flask
 import json
 import os
 import requests
-import logging
 from apscheduler.schedulers.background import BackgroundScheduler
 
 # Global settings.
-logging.basicConfig(filename='LOGGER.log', level=logging.DEBUG)  # Logger
 super_secret_web_hook = os.environ.get('WEBHOOK')  # Slack Webhook
 seconds_interval_per_update = 3600  # Time interval per update
 latest_tweets_time = 4  # The time from where we want tweets(1 hour ago, means 4 hours ago because of time diffs in IL).
 app = flask.Flask(__name__)  # Flask App
 
-# Twitter Settings
-# TCK = 'IOLJfJDBoPTMmpe6jqoo9quya' (1)
-# TCS = 'aKQsEsJe7O3EVJQXgwaQ1O3saHulaAk0jaFndGZMjc2oOVtKNW' (2)
-# TAT = '1269651960954748930-0i2qXxy9UMHjqYseJyl7SerIOkabbv' (3)
-# TAS = 'JSp33pz7py2fy19c3fXzKhTuzdW2xP02W6g8ngcTI3NEl' (4)
 # <------- (Set them as env variables, or just replace below) -------->
 twitter_consumer_key = os.environ.get('TCK')  # Consumer Key (1)
 twitter_consumer_secret = os.environ.get('TCS')  # Consumer Secret (2)
@@ -32,8 +22,7 @@ auth = tweepy.OAuthHandler(twitter_consumer_key, twitter_consumer_secret)  # Twi
 auth.set_access_token(twitter_access_token, twitter_access_secret)  # Setting access Token
 api = tweepy.API(auth)  # connection to Twitter API.
 
-user_id = '1269651960954748930'  # The ID of the user that the bot will follow, and get his latest updates.
-run_stream_with_user = False  # This handles the Streaming (Getting updates on new tweets)
+run_stream_with_user = True  # This handles the Streaming (Getting updates on new tweets)
 
 
 def schedule_send_time_request():
@@ -53,33 +42,6 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(func=schedule_send_time_request, trigger="interval", seconds=seconds_interval_per_update)
 scheduler.start()
 
-if run_stream_with_user:
-    """
-    -This should subscribe to the selected user (Set above), and get his new tweets, if he does tweet something.
-    **This won't work on Heroku free account, this WILL work locally, or on a proper server.**
-    change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
-    instant updates on new tweets from the selected user.
-    """
-
-
-    class TwitterListener(StreamListener):
-        def on_data(self, data):
-            try:
-                data = json.loads(data)
-                requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
-                logging.info(f'User has posted an update : {data["text"]}')
-                return True
-            except:
-                logging.error(f'There was no data while following the user.')
-
-        def on_error(self, status_code):
-            logging.warning(f'Something went wrong while following Twitter.{status_code}')
-
-
-    listener = TwitterListener()
-    stream = Stream(auth, listener)
-    stream.filter(follow=[user_id])
-
 
 def send_update(username, user_full_name):
     """
@@ -98,7 +60,6 @@ def send_update(username, user_full_name):
         requests.post(super_secret_web_hook,
                       json.dumps({"text": f'>:robot_face::speech_balloon: *News from {user_full_name}!*'}))
         requests.post(super_secret_web_hook, json.dumps({"text": f'{response}'}))
-    logging.info('Sent an update!')
     return f'{username} News!:'
 
 
@@ -202,5 +163,24 @@ def post_tweet():
     return flask.Response()
 
 
+class TwitterListener(tweepy.streaming.StreamListener):
+    """
+    -This should subscribe to the selected user (Set above), and get his new tweets, if he does tweet something.
+    **This won't work on Heroku free account, this WILL work locally, or on a proper server.**
+    change to True to make it work locally, this starts the Streaming (Following) for the user account, and gives you
+    instant updates on new tweets from the selected user.
+    """
+    def on_data(self, data):
+        data = json.loads(data)
+        requests.post(super_secret_web_hook, json.dumps({"text": f'{data["text"]}'}))
+        return True
+
+
+listener = TwitterListener()
+stream = tweepy.Stream(auth, listener)
+stream.filter(follow=['1269651960954748930'], is_async=True)
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=False)
